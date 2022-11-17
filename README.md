@@ -14,3 +14,6 @@
     - Durhack 2022 Discord
     - [Durhack Facebook](https://www.facebook.com/DurHackEvent)
     - [Durhack Website](https://durhack.com/): Look for the event schedule
+
+- Sponsors
+    - [MLH](https://hack.mlh.io/software)
