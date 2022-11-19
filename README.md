@@ -1,5 +1,6 @@
 # The second Durhack in 2022
 
+- Files Explanation
 - Data Augment:
 
   - Baseline: ("RET_1")("mean") ["Date","Sector"]
@@ -26,7 +27,7 @@
     - Choose best splits
     - we can drop original features according to the feature importance
   - dot product - similarity (stock)
-- ## 
+- ##
 - ## Feature Selection:
 
 
@@ -37,28 +38,27 @@
     - VOLUME_1
     - RET_1
     - **RET_2, RET_3, RET_7, RET_14, RET_17?**
-    - 
+    - the second day of each week for RET "mean"
 
-    -
-    -
-    - max
-    - min?
-    -
-
-Use tables to compare the Accuracy: (average different models' predictions)
-
-
-|        | RF | Logistic |
-| -------- | ---- | ---------- |
-| Acc(%) |    |          |
-|        |    |          |
-
+    - group by 
 - ## TODO list:
+  - [X] Feature Engineering
+  - [X] Feature Selection
+  - [X] Compare different models:
+
+    - [X] Random Forest
+    - [ ] Logistic
+    - [ ] LightGBM
+    - [ ] Xgboost
+    - [ ] Neural Networks
+
+    Use tables to compare the Accuracy:
 
 
-  - [ ] Jacky - logistic feature importance to see whether feature importance is the same as RF
-  - [ ] Harrison - errors of feature importance for RF
-  - [ ]
+    |        | RF | Logistic |
+    | -------- | ---- | ---------- |
+    | Acc(%) |    |          |
+    
 - ## Model Performance Comparisons:
 - Instruction:
 
