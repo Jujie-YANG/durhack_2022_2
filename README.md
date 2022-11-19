@@ -36,11 +36,9 @@
     - all RET features group by "mean"
     - "VOLUME_1" features group by "mean"
     - VOLUME_1
-    - RET_1
     - **RET_2, RET_3, RET_7, RET_14, RET_17?**
     - the second day of each week for RET "mean"
-
-    - group by 
+    - group by STOCK, SECTOR, INDUSTRY, DATE
 - ## TODO list:
   - [X] Feature Engineering
   - [X] Feature Selection
