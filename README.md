@@ -1,4 +1,16 @@
 # The second Durhack in 2022
+- Data Augment:
+    - Baseline: baseline.jpynb - 51.31%
+    - GroupBy: ("mean","std")
+        - ["Date","Sector","Industry"] - baseline_gbdsi - Jacky
+        - ["Date","Sector"] - baseline_gbds.ipynb - Andy
+        - ["Date","Industry"] - baseline_gbdi.ipynb - Ruisheng
+        - ["Sector","Industry"] - baseline_gbsi.ipynb - Tianshu
+
+    - dot product - similarity (stock)
+
+
+
 - Instruction:
     - For every team member:
         - please remember to ```git pull``` first before uploading your work!
