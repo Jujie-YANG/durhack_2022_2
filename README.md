@@ -32,13 +32,13 @@
 
 
   - ### Final selected features
+    - RET (1-20) _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean"
+    - RET_1, RET_2, RET_3, RET_7, RET_14, RET_17
 
-    - all RET features group by "mean"
-    - "VOLUME_1" features group by "mean"
+    - VOLUME 1,13 _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean"
     - VOLUME_1
-    - **RET_2, RET_3, RET_7, RET_14, RET_17?**
-    - the second day of each week for RET "mean"
-    - group by STOCK, SECTOR, INDUSTRY, DATE
+ 
+
 - ## TODO list:
   - [X] Feature Engineering
   - [X] Feature Selection
