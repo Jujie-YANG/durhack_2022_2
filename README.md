@@ -11,7 +11,7 @@
 - Useful Links
     - [DEVPOST: DurHack2022](https://durhack-2022-2.devpost.com/?ref_feature=challenge&ref_medium=discover): This Durhack
     - [DEVPOST: DurHack2021](https://durhack2022.devpost.com/?ref_feature=challenge&ref_medium=discover): Last Durhack
-    - Durhack 2022 Discord
+    - [Durhack 2022 Discord](durhack.com/discord)
     - [Durhack Facebook](https://www.facebook.com/DurHackEvent)
     - [Durhack Website](https://durhack.com/): Look for the event schedule
 
