@@ -32,9 +32,13 @@
 
   - ### Final selected features
 
-    - all features group by "mean"
+    - all RET features group by "mean"
+    - "VOLUME_1" features group by "mean"
     - VOLUME_1
     - RET_1
+    - **RET_2, RET_3, RET_7, RET_14, RET_17?**
+    - 
+
     -
     -
     - max
