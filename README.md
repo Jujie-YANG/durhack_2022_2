@@ -7,10 +7,9 @@
 
     - baseline_RF.jpynb - 51.31%
     - baseline_log.jpynb - 50.88%
-
   - Questions to ask sponsors:
-    - [ ]why before predicting X_test, we need to fit? Does it pre-train the test data!!??
 
+    - [ ]why before predicting X_test, we need to fit? Does it pre-train the test data!!??
   - Conclusion:
 
     - 'mean' has less noise than 'std' (Therefore, choose mean only - (baseline_RF_gbds.ipynb - Andy))
@@ -88,12 +87,15 @@
       - [ ] Neural Networks
 
       Use tables to compare the Accuracy:
+      - RF: (n_estimators = 500, max_depth=6, random_state:0, n_jobs=-1)
+      - LightGBM(1): (n_estimators = 50, learning_rate = 0.2, num_leaves = 5)
+      - LightGBM(2): (n_estimators = 500, max_depth=6, random_state:0, n_jobs=-1)
 
 
-      |                | RF(n_estimators = 500, max_depth=6, random_state:0, n_jobs=-1) | Logistic | LightGBM (n_estimators = 50, learning_rate = 0.2, num_leaves = 5) | LightGBM(n_estimators = 500, max_depth=6, random_state:0, n_jobs=-1) |
-      | ---------------- | ---------------------------------------------------------------- | :--------- | ------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-      | Average Acc(%) | **51.74**                                                      | 50.94    | 51.37                                                             | 51.25                                                                |
-      | std            | 0.78                                                           | **0.4**  | 1.04                                                              | 0.88                                                                 |
+      |                | RF | Logistic | LightGBM(1)  | LightGBM(2) | xgboost  |
+      | ---------------- | ---------------------------------------------------------------- | :--------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
+      | Average Acc(%) | ***51.74***                                                      | 50.94    | 51.37                                                                | 51.25                                                                | 51.10    |
+      | std            | 0.78                                                           | 0.4      | 1.04                                                                 | 0.88                                                                 | ***0.23*** |
 - ## Model Performance Comparisons:
 - Instruction:
 
