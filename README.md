@@ -29,8 +29,13 @@
     - [ ] Neural Networks
   - [X] 4th round Feature Selection (49 features in total)
   - [X] 5th round Feature Selection (69 features in total)
-- ## Feature Engineering:
+  - [X] Outlier Detection
+  - [X] Evaluation Report
+  - [X] Average performacn
+- ## Outliers Detection:
+  ![Detect Outliers](./src/outliers.PNG)
 
+- ## Feature Engineering:
 
   - ### Observation
 
@@ -45,7 +50,6 @@
     - GROUP BY (STOCK, SECTOR, INDUSTRY, DATE)
     - RET of specific days
 - ## Feature Selection: (Based on Feature Importance of Random Forest model)
-
 
   - ### 1st round Feature Selection (110 columns in total)
 
@@ -104,7 +108,6 @@
     | VOLUME_1                                                        | 1            |
 - ## Parameter Tuning
 
-
   - ### Parameters comparison:
 
     - Random Forest:
@@ -121,7 +124,6 @@
     - Lightgmb
       - K-fold = 8
 - ## Model Performance Comparisons:
-
 
   - ### Model params:
 
@@ -172,7 +174,6 @@
     | Average Acc(%) | ***51.80*** | 50.85    | 51.65       | 51.28       | 51.03   |
     | std            | 0.83        | 0.43     | 1.33        | 0.89        | 0.23    |
 - ## Durhack Related:
-
 
   - ### MS word
 
