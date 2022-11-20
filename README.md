@@ -13,15 +13,14 @@
   - Conclusion:
 
     - 'mean' has less noise than 'std' (Therefore, choose mean only - (baseline_RF_gbds.ipynb - Andy))
-    - Could add min and max
     - Change shift
     - Choose best splits
     - we can drop original features according to the feature importance
   - dot product - similarity (stock)
-- ## Feature/Parameters Selection:
+- ## Feature/Parameters Selection: (Based on Feature Importance of Random Forest model)
 
 
-  - ### Final selected features (110 Columns in total)
+  - ### 1st round Feature Selection (110 columns in total)
 
 
     | Features                                                        | # of columns |
@@ -35,16 +34,26 @@
     | DATE                                                            | 1            |
     | RET (1-20) _ group by (DATE) _ "mean"                           | 20           |
     | VOLUME (1-20) _ group by (DATE) _ "mean"                        | 20           |
-    - RET (1-20) _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean"
-    - RET_1, RET_2, RET_3, RET_7, RET_14, RET_17
-    - VOLUME 1,13 _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean"
-    - VOLUME_1
-    - RET (1-20) _ groupby (STOCK) _ "mean"
-    - VOLUME (1-20) _ groupby (STOCK) _ "mean"
-    - DATE
-    - RET (1-20) _ group by (DATE) _ "mean"
-    - VOLUME (1-20) _ group by (DATE) _ "mean"
-  -
+  - ### 2nd round Feature Selection (29 columns in total)
+
+
+    | Features                                                        | # of columns |
+    | :---------------------------------------------------------------- | -------------- |
+    | RET (1-20) _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean"  | 20           |
+    | RET_1, RET_2, RET_3, RET_7, RET_14, RET_17                      | 6            |
+    | VOLUME 1,13 _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean" | 2            |
+    | VOLUME_1                                                        | 1            |
+  - ### 3rd round Feature Selection (6 columns in total)
+
+
+    | Features (>0.015)                        | # of columns |
+    | ------------------------------------------ | -------------- |
+    | RET_1                                    | 1            |
+    | RET_17                                   | 1            |
+    | RET_1_STOCK_SECTOR_INDUSTRY_DATE_mean    | 1            |
+    | RET_4_STOCK_SECTOR_INDUSTRY_DATE_mean    | 1            |
+    | RET_17_STOCK_SECTOR_INDUSTRY_DATE_mean   | 1            |
+    | VOLUME_1_STOCK_SECTOR_INDUSTRY_DATE_mean | 1            |
   - ### Optimized Parameters
 
     - Random Forest
@@ -70,33 +79,54 @@
       - learning_rate = 0.2 (comparing with 0.01, 0.1, 0.2, 0.3, 0.5) - grid search
       - n_estimators = 50 (comparing with 25, 30, 35, 50)
       - num_leaves = 5 (comparing with 5, 30, 50)
-- ## TODO list:
+- ## To-Do List:
 
 
   - [X] Fill missing data value with 0
   - [X] Feature Engineering
-  - [X] Feature Selection
-  - [ ] Deal with Volumn outliers with max 10 (normal distribution)
 
-    - [X] Compare different models:
+    - [X] min & max
+    - [X] GroupBy individual feature
+    - [X] GroupBy 2 features
+    - [X] GroupBy 3 features
+    - [X] GroupBy 4 features
+    - [X] GroupBy 5 features
+    - [X] GroupBy 6 features
+  - [X] 1st round Feature Selection (110 columns in total)
+  - [ ] Deal with Volumn outliers (Normal Distribution)
+  - [X] Compare different models:
 
-      - [X] Random Forest
-      - [X] Logistic
-      - [X] LightGBM
-      - [ ] Xgboost
-      - [ ] Neural Networks
-
-      Use tables to compare the Accuracy:
-      - RF: (n_estimators = 500, max_depth=6, random_state:0, n_jobs=-1)
-      - LightGBM(1): (n_estimators = 50, learning_rate = 0.2, num_leaves = 5)
-      - LightGBM(2): (n_estimators = 500, max_depth=6, random_state:0, n_jobs=-1)
-
-
-      |                | RF | Logistic | LightGBM(1)  | LightGBM(2) | xgboost  |
-      | ---------------- | ---------------------------------------------------------------- | :--------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------- |
-      | Average Acc(%) | ***51.74***                                                      | 50.94    | 51.37                                                                | 51.25                                                                | 51.10    |
-      | std            | 0.78                                                           | 0.4      | 1.04                                                                 | 0.88                                                                 | ***0.23*** |
+    - [X] Random Forest
+    - [X] Logistic
+    - [X] LightGBM
+    - [X] Xgboost
+    - [ ] Neural Networks
+  - [ ] 2nd round Feature Selection
 - ## Model Performance Comparisons:
+
+
+  - ### 1st round Feature Selection (120 columns in total)
+
+    - RF: (n_estimators = 500, max_depth=6, random_state:0, n_jobs=-1)
+    - LightGBM(1): (n_estimators = 50, learning_rate = 0.2, num_leaves = 5)
+    - LightGBM(2): (n_estimators = 500, max_depth=6, random_state:0, n_jobs=-1) -- same as RF
+
+
+      |                | RF          | Logistic | LightGBM(1) | LightGBM(2) | xgboost    |
+      | ---------------- | ------------- | :--------- | ------------- | ------------- | ------------ |
+      | Average Acc(%) | ***51.74*** | 50.94    | 51.37       | 51.25       | 51.10      |
+      | std            | 0.78        | 0.4      | 1.04        | 0.88        | ***0.23*** |
+  - ### 2nd round Feature Selection (29 columns in total)
+
+    - RF: (n_estimators = 500, max_depth=6, random_state:0, n_jobs=-1)
+    - LightGBM(1): (n_estimators = 50, learning_rate = 0.2, num_leaves = 5)
+    - LightGBM(2): (n_estimators = 500, max_depth=6, random_state:0, n_jobs=-1) -- same as RF
+
+
+      |                | RF          | Logistic   | LightGBM(1) | LightGBM(2) | xgboost    |
+      | ---------------- | ------------- | :----------- | ------------- | ------------- | ------------ |
+      | Average Acc(%) | ***51.92*** | 50.73      | 51.53       | 51.01       | 50.64      |
+      | std            | 0.75        | ***0.40*** | 1.14        | 0.74        | ***0.40*** |
 - Instruction:
 
   - For every team member:
