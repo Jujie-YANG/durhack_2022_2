@@ -20,8 +20,8 @@
   - [X] 2nd round Feature Selection
   - [X] 3rd round Feature Selection
   - [X] Fine Tune Params
-    - [X]n_splits(K-fold)
-    - [X]shifts
+    - [X] n_splits(K-fold)
+    - [X] shifts
   - [X] Compare different models:
     - [X] Random Forest
     - [X] Logistic
