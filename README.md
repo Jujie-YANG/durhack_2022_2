@@ -1,11 +1,6 @@
 # The second Durhack in 2022 (Theme: DATA AUGMENT)
 
-- Questions to ask sponsors:
-
-  - [ ]why before predicting X_test, we need to fit? Does it pre-train the test data!!??
-  - [ ]dot product - similarity (stock)??
 - ## To-Do List:
-
 
   - [X] Fill missing data value with 0
   - [X] Feature Engineering
