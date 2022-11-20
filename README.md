@@ -24,7 +24,7 @@
   - [X] Fine Tune Params
 
     - [X] n_splits(K-fold)
-    - [X]shifts
+    - [X] shifts
   - [X] Compare different models:
 
     - [X] Random Forest
