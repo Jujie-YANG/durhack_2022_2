@@ -180,7 +180,6 @@
   - Neural Network
   - Feature Engineering
 
-  
 - ## Durhack Related:
 
   - ### MS word
