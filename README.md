@@ -1,10 +1,12 @@
 # The second Durhack in 2022 (Theme: DATA AUGMENT)
 
-  - Questions to ask sponsors:
-    - [ ]why before predicting X_test, we need to fit? Does it pre-train the test data!!??
-    - [ ]dot product - similarity (stock)??
+- Questions to ask sponsors:
 
+  - [ ]why before predicting X_test, we need to fit? Does it pre-train the test data!!??
+  - [ ]dot product - similarity (stock)??
 - ## To-Do List:
+
+
   - [X] Fill missing data value with 0
   - [X] Feature Engineering
 
@@ -15,33 +17,38 @@
     - [X] GroupBy 4 features
     - [X] GroupBy 5 features
     - [X] GroupBy 6 features
-  - [X] 1st round Feature Selection (110 columns in total)
+  - [X] 1st round Feature Selection (110 features in total)
   - [ ] Deal with Volumn outliers (Normal Distribution)
-  - [X] 2nd round Feature Selection
-  - [X] 3rd round Feature Selection
+  - [X] 2nd round Feature Selection (29 features in total)
+  - [X] 3rd round Feature Selection (6 features in total)
   - [X] Fine Tune Params
+
     - [X] n_splits(K-fold)
-    - [X] shifts
+    - [X]shifts
   - [X] Compare different models:
+
     - [X] Random Forest
     - [X] Logistic
     - [X] LightGBM
     - [X] Xgboost
     - [ ] Neural Networks
-
+  - [X] 4th round Feature Selection (49 features in total)
+  - [X] 5th round Feature Selection (69 features in total)
 - ## Feature Engineering:
+
+
   - ### Observation
+
     - 'mean' has less noise than 'std'
     - Group by # of features (2 < 3 < 4 > 5 > 6)
     - The feature importance of (RET_1, RET_2, RET_3, RET_7, RET_14, RET_17) are significantly higher than other individual ones
     - VOLUME 1,13 _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean" -- (51.82%, 1.17) higher than using all VOLUME GROUP BY the same features_mean -- 51.77%, 1.33 (Acc slightly higher , std slightly slower, as well higher feature importance)
     - Regarding first 6 individual features, DATE is significantly high
     - Regarding Groupby first 6 individual features separately, DATE is quite important
-  
   - ### Results
+
     - GROUP BY (STOCK, SECTOR, INDUSTRY, DATE)
     - RET of specific days
-
 - ## Feature Selection: (Based on Feature Importance of Random Forest model)
 
 
@@ -79,9 +86,30 @@
     | RET_4_STOCK_SECTOR_INDUSTRY_DATE_mean    | 1            |
     | RET_17_STOCK_SECTOR_INDUSTRY_DATE_mean   | 1            |
     | VOLUME_1_STOCK_SECTOR_INDUSTRY_DATE_mean | 1            |
+  - ### 4th round Feature Selection (49 columns in total)
 
 
+    | Features                                                        | # of columns |
+    | :---------------------------------------------------------------- | -------------- |
+    | RET (1-20) _ group by (STOCK) _ "mean"                          | 20           |
+    | VOLUME (1-20) _ group by (STOCK) _ "mean"                       | 20           |
+    | RET_1, RET_2, RET_3, RET_7, RET_14, RET_17                      | 6            |
+    | VOLUME 1,13 _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean" | 2            |
+    | VOLUME_1                                                        | 1            |
+  - ### 5th round Feature Selection (69 columns in total)
+
+
+    | Features                                                        | # of columns |
+    | :---------------------------------------------------------------- | -------------- |
+    | RET (1-20) _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean"  | 20           |
+    | RET (1-20) _ group by (STOCK) _ "mean"                          | 20           |
+    | VOLUME (1-20) _ group by (STOCK) _ "mean"                       | 20           |
+    | RET_1, RET_2, RET_3, RET_7, RET_14, RET_17                      | 6            |
+    | VOLUME 1,13 _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean" | 2            |
+    | VOLUME_1                                                        | 1            |
 - ## Parameter Tuning
+
+
   - ### Parameters comparison:
 
     - Random Forest:
@@ -97,8 +125,6 @@
       - K-fold = 4
     - Lightgmb
       - K-fold = 8
-
-    
 - ## Model Performance Comparisons:
 
 
@@ -127,8 +153,8 @@
 
     |                | RF          | Logistic   | LightGBM(1) | LightGBM(2) | xgboost    |
     | ---------------- | ------------- | :----------- | ------------- | ------------- | ------------ |
-    | Average Acc(%) | ***51.92*** | 50.73      | 51.53       | 51.01       | 50.64      |
-    | std            | 0.75        | ***0.40*** | 1.14        | 0.74        | ***0.40*** |
+    | Average Acc(%) | ***51.57*** | 50.73      | 51.53       | 51.01       | 50.64      |
+    | std            | 0.76        | ***0.40*** | 1.14        | 0.74        | ***0.40*** |
   - ### 3rd round Feature Selection (6 columns in total)
 
 
@@ -136,16 +162,34 @@
     | ---------------- | ------------- | :--------- | ------------- | ------------- | ------------ |
     | Average Acc(%) | ***51.60*** | 51.14    | 51.58       | 51.20       | 51.28      |
     | std            | 0.46        | 0.42     | 0.83        | 0.53        | ***0.36*** |
+  - ### 4th round Feature Selection (49 columns in total)
 
+
+    |                | RF          | Logistic | LightGBM(1) | LightGBM(2) | xgboost    |
+    | ---------------- | ------------- | :--------- | ------------- | ------------- | ------------ |
+    | Average Acc(%) | ***51.92*** | 51.22    | 51.67       | 51.66       | 51.30      |
+    | std            | 0.75        | 0.27     | 1.09        | 0.73        | ***0.33*** |
+  - ### 5th round Feature Selection (69 columns in total)
+
+
+    |                | RF          | Logistic | LightGBM(1) | LightGBM(2) | xgboost |
+    | ---------------- | ------------- | :--------- | ------------- | ------------- | --------- |
+    | Average Acc(%) | ***51.80*** | 50.85    | 51.65       | 51.28       | 51.03   |
+    | std            | 0.83        | 0.43     | 1.33        | 0.89        | 0.23    |
 - ## Durhack Related:
+
+
   - ### MS word
+
     - [Final Report](https://durhamuniversity-my.sharepoint.com/:w:/g/personal/gldt31_durham_ac_uk/EZX_mdaJ90tJkijEf698WyEBxNfcG5HGmSEaMVDhSvJoSQ?e=7X5nkX)
     - [Ideas](https://durhamuniversity-my.sharepoint.com/:w:/g/personal/gldt31_durham_ac_uk/Ebx6isRb32dGq3DOFPWKx_0BC4BJwWFr7otds2pextGVxg?e=Id591G)
-  - ### Durhack 
+  - ### Durhack
+
     - [DEVPOST: DurHack2022](https://durhack-2022-2.devpost.com/?ref_feature=challenge&ref_medium=discover): This Durhack
     - [DEVPOST: DurHack2021](https://durhack2022.devpost.com/?ref_feature=challenge&ref_medium=discover): Last Durhack
     - [Durhack 2022 Discord](durhack.com/discord)
     - [Durhack Facebook](https://www.facebook.com/DurHackEvent)
     - [Durhack Website](https://durhack.com/): Look for the event schedule
   - ### Sponsors/APIs
+
     - [MLH](https://hack.mlh.io/software)
