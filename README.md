@@ -27,17 +27,44 @@
     - Choose best splits
     - we can drop original features according to the feature importance
   - dot product - similarity (stock)
-- ##
-- ## Feature Selection:
 
 
+
+- ## Feature/Parameters Selection:
   - ### Final selected features
     - RET (1-20) _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean"
     - RET_1, RET_2, RET_3, RET_7, RET_14, RET_17
 
     - VOLUME 1,13 _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean"
     - VOLUME_1
- 
+
+    - RET (1-20) _ groupby (STOCK) _ "mean"
+    - VOLUME (1-20) _ groupby (STOCK) _ "mean"
+    
+
+    - First 6 individual ones
+    - Groupby first 6 individual ones separately
+
+
+  - ### Optimized Parameters
+    - Random Forest
+      - K-fold = 4 
+    - Lightgmb
+      - K-fold = 8?
+    
+- ## Observation:
+  - ### Feature Engineering
+    - Group by # of features (2 < 3 < 4 > 5 > 6)
+    - The feature importance of (RET_1, RET_2, RET_3, RET_7, RET_14, RET_17) are significantly higher than other individual ones
+    - VOLUME 1,13 _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean" -- (51.82%, 1.17) higher than using all VOLUME GROUP BY the same features_mean -- 51.77%, 1.33 (Acc slightly higher , std slightly slower, as well higher feature importance)
+
+  - ### Parameters comparison:
+    - Random Forest:
+      - K-fold = 4 (acc 4 > 6 > 8, std 4 lightly smaller than 6, 8 is the worst)
+    - LightGBM:
+      - K-fold = 8 (8: acc 51.42%, std 1.14; 6: acc 51.37%, std 0.74)
+      - Other params(e.g. learning rate?)
+
 
 - ## TODO list:
   - [X] Feature Engineering
