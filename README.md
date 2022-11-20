@@ -31,7 +31,8 @@
   - [X] 5th round Feature Selection (69 features in total)
   - [X] Outlier Detection
   - [X] Evaluation Report
-  - [X] Average performacn
+  - [X] Average performance of best algorithms
+
 - ## Outliers Detection:
   ![Detect Outliers](./src/outliers.PNG)
 
@@ -172,7 +173,7 @@
     |                | RF          | Logistic | LightGBM(1) | LightGBM(2) | xgboost |
     | ---------------- | ------------- | :--------- | ------------- | ------------- | --------- |
     | Average Acc(%) | ***51.80*** | 50.85    | 51.65       | 51.28       | 51.03   |
-    | std            | 0.83        | 0.43     | 1.33        | 0.89        | 0.23    |
+    | std            | 0.83        | ***0.43***     | 1.33        | 0.89        | 0.23    |
 - ## Durhack Related:
 
   - ### MS word
