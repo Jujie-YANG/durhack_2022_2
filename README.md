@@ -109,7 +109,7 @@
     | VOLUME_1                                                        | 1            |
 - ## Parameter Tuning
 
-  - ### Parameters comparison:
+  - ### Parameters comparison: (Grid search)
 
     - Random Forest:
       - K-fold = 4 (acc 4 > 6 > 8, std 4 lightly smaller than 6, 8 is the worst) - 8:51.47%,1.23; 4: 51.57%, 0.76
