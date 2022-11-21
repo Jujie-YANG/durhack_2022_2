@@ -39,13 +39,14 @@
 - ## Feature Engineering:
 
   - ### Observation
-
+  
     - 'mean' has less noise than 'std'
     - Group by # of features (2 < 3 < 4 > 5 > 6)
     - The feature importance of (RET_1, RET_2, RET_3, RET_7, RET_14, RET_17) are significantly higher than other individual ones
     - VOLUME 1,13 _ group by (STOCK, SECTOR, INDUSTRY, DATE) _ "mean" -- (51.82%, 1.17) higher than using all VOLUME GROUP BY the same features_mean -- 51.77%, 1.33 (Acc slightly higher , std slightly slower, as well higher feature importance)
     - Regarding first 6 individual features, DATE is significantly high
     - Regarding Groupby first 6 individual features separately, DATE is quite important
+
   - ### Results
 
     - GROUP BY (STOCK, SECTOR, INDUSTRY, DATE)
